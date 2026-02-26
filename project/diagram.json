@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Giovana Barbosa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -12.6, "left": -131.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": -283.16, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -3.6, "left": 23, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 71.45,
+      "left": 17.8,
+      "rotate": 270,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "esp:3V3", "bb1:tp.1", "green", [ "h-28.65", "v-9.6" ] ],
+    [ "r1:1", "bb1:17b.f", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:17t.b", "", [ "$bb" ] ],
+    [ "bb1:tn.2", "bb1:16t.c", "green", [ "v0" ] ],
+    [ "led1:A", "bb1:17t.a", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:16t.a", "", [ "$bb" ] ],
+    [ "esp:21", "bb1:17b.g", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
